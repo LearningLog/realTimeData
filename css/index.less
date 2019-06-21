@@ -1,0 +1,280 @@
+// 引入变量表
+@import './setting.less';
+// 引入浏览器的默认样式
+@import './reset.less';
+
+html,body {
+  width: 100%;
+  height: 100%;
+  //overflow: hidden;
+}
+.dn {
+  display: none;
+}
+
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+/*兼容IE浏览器清除浮动*/
+.clearfix {
+  zoom: 1;
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+  background: #ccc url(../img/backgroundImage.png) repeat;
+  background-size: 100% 100%;
+  color: @fontColor;
+  font-size: @fontSize;
+
+  header {
+    width: 100%;
+    height: 100px;
+    background: rgba(255,255,255, 0) url('../img/topTitle.png') no-repeat center center;
+    background-size: 100% 100%;
+
+    .wrapper {
+      width: 1200px;
+      margin: 0 auto;
+      height: 100px;
+      position: relative;
+
+      #title {
+        position: absolute;
+        top: 20px;
+        left: 453px;
+        color: @headerFontColor;
+        font-size: 30px;
+      }
+
+      #currentTime {
+        position: absolute;
+        top: 26px;
+        left: 900px;
+        color: @headerFontColor;
+        font-size: 16px;
+      }
+    }
+  }
+
+  #content {
+    width: 100%;
+    height: calc(100% - 100px);
+    padding: 0 20px 20px;
+    box-sizing: border-box;
+
+    #content-lift {
+      width: 33%;
+      height: 100%;
+      box-sizing: border-box;
+
+      ul {
+        li {
+          display: block;
+          height: 30%;
+          margin-bottom: 6px;
+          box-sizing: border-box;
+        }
+
+        //潜客
+        #visitor {
+          background: rgba(255,255,255, 0) url("../img/visitor-outer.png") no-repeat center center;
+          background-size: 100% 100%;
+          box-sizing: border-box;
+
+          .visitor-left, .visitor-right {
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+            box-sizing: border-box;
+
+            .visitor-top {
+              width: 100%;
+              height: 30px;
+              box-sizing: border-box;
+
+              .visitor-title {
+                height: 30px;
+                line-height: 30px;
+                box-sizing: border-box;
+              }
+            }
+          }
+
+          .image-lift {
+            background: rgba(255,255,255, 0) url("../img/visitor-left.png") no-repeat center center;
+          }
+
+          .image-right {
+            background: rgba(255,255,255, 0) url("../img/visitor-right.png") no-repeat center center;
+          }
+
+          .image-lift, .image-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 123px;
+            height: 123px;
+            box-sizing: border-box;
+            margin: 0 auto 10px;
+            background-size: 100% 100%;
+          }
+
+          .visitor-num, .visitor-duration {
+            color: #FFFFFF;
+            font-size: @fontSize;
+          }
+        }
+
+        //进店趋势
+        .echarts {
+          background: rgba(255,255,255, 0) url("../img/entry-outer.png") no-repeat center center;
+          background-size: 100% 100%;
+          box-sizing: border-box;
+          width: 100%;
+          height: 170px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .echarts-inner {
+            background: rgba(255,255,255, 0) url("../img/trend.png") no-repeat center center;
+            background-size: 100% 100%;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .receive {
+          height: 190px;
+        }
+      }
+    }
+
+    #content-right {
+      width: 65%;
+      height: 100%;
+      margin-left: 10px;
+      margin-right: 10px;
+      box-sizing: border-box;
+      background: rgba(255,255,255, 0) url("../img/deail-outer.png") no-repeat center center;
+      background-size: 100% 100%;
+
+      .marginTop {
+        margin-top: 20px;
+        margin-left: 10px;
+      }
+
+      .detail-ul {
+        height: 100%;
+        margin: 24px 0 5px;
+        //overflow: hidden;
+      }
+
+      .detail {
+        width: 100%;
+        height: 162px;
+        box-sizing: border-box;
+        //overflow: hidden;
+        margin-bottom: 10px;
+
+        .detail-item {
+          display: inline-block;
+          width: 49%;
+          height: 100%;
+          margin-right: 6px;
+          box-sizing: border-box;
+          background: rgba(255,255,255, 0) url("../img/salesperson-outer.png") no-repeat center center;
+          background-size: 100% 100%;
+          text-align: center;
+          position: relative;
+        }
+
+        .name {
+          position: absolute;
+          display: inline-block;
+          left: 0;
+          right: 0;
+          margin: auto;
+        }
+
+        .detail-left {
+          width: 24%;
+          margin: 20px 10px 10px 10px;
+          box-sizing: border-box;
+          background: rgba(255,255,255, 0) url("../img/salesperson.png") no-repeat center center;
+          background-size: 100% 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .person {
+          width: 100%;
+          padding: 2px 2px 2px;
+          box-sizing: border-box;
+        }
+
+        .item-ul {
+          width: 69%;
+          margin-top: 20px;
+
+          .time {
+            font-size: 14px;
+            text-align: left;
+          }
+        }
+
+        .item-ul span {
+          display: inline-block;
+          width: 48%;
+          font-size: 14px;
+          margin-bottom: 3px;
+          margin-right: 2px;
+          box-sizing: border-box;
+        }
+
+        .enter-time, .lang-time {
+          margin-bottom: 0px!important;
+        }
+
+        .item {
+          display: inline-block;
+          text-align: center;
+          height: 100%;
+          background: rgba(255,255,255, 0) url("../img/no-checked.png") no-repeat center center;
+          background-size: 100% 100%;
+          padding: 4px 0;
+          cursor: pointer;
+          /*不换行*/
+          white-space: nowrap;
+          /*文字溢出处理*/
+          overflow: hidden;
+          /*溢出省略号*/
+          text-overflow: ellipsis;
+        }
+
+        .checked {
+          display: inline-block;
+          text-align: center;
+          height: 100%;
+          background: rgba(255,255,255, 0) url("../img/checked.png") no-repeat center center;
+          background-size: 100% 100%;
+          padding: 4px 0;
+          cursor: pointer;
+          color: #F6FF00;
+        }
+      }
+    }
+  }
+}

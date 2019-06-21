@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    p {
+      font-size: 0;
+    }
+
+        /*p {
+   justify两端对齐 
+      text-align: justify;
+    }*/
+
+    /* p:after {
+      content: '';
+      display: inline-block;
+      width: 100%;
+      overflow: hidden;
+    } */
+
+    span {
+      display: inline-block;
+      width:20px;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      background-color: red;
+      font-size: 14px;
+
+      /* span 不换行  不可行(空格可以删掉 但是不能保证 编辑器不格式化)*/
+    }
+
+    
+  </style>
+</head>
+<body>
+  <!-- <p>白日依山尽，黄河入海流</p> -->
+
+  <p>
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+    <span>5</span>
+    <span>6</span>
+    <span>7</span>
+    <span>8</span>
+    <span>9</span>
+    <span>10</span>
+  </p>
+</body>
+</html>

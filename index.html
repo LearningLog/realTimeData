@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name="viewport" content="width=1202">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>兴奥晟通实时数据监测</title>
+  <!-- 引入css -->
+  <link rel="stylesheet" href="./css/index.css">
+  <!-- 引入favicon -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <!-- 兼容html5新标签和媒体查询的库  只有低版本8及其以下采用 因此要用ie条件注释语句(就是ie浏览器才认识的代码 其他浏览器都认为是注释)-->
+  <!-- lte就是小于等于ie8  lt小于ie9 -->
+  <!--[if lte IE 8]>
+  <script src="js/lib/html5shiv.js"></script>
+  <script src="js/lib/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- cc:ie6 其实是emmet语法早期的写法  在webstorm和sublime中应该是可以的 -->
+
+</head>
+
+<body>
+  <div id="container">
+    <!--标题部分-->
+    <header>
+      <div class="wrapper">
+        <h2 id="title">兴奥晟通实时数据监测</h2>
+        <span id="currentTime">2019-06-12 12:10:10</span>
+      </div>
+    </header>
+    <!--内容区域-->
+    <div id="content" class="clearfix">
+      <!--内容左侧-->
+      <div id="content-lift" class="fl">
+        <ul class="">
+          <!--潜客-->
+          <li id="visitor" class="clearfix">
+            <div class="visitor-left fl">
+              <div class="visitor-top">
+                <span class="visitor-title ">游客数量</span>
+              </div>
+              <div class="image-lift">
+                <span class="visitor-num">77人</span>
+              </div>
+            </div>
+            <div class="visitor-right fl">
+              <div class="visitor-top">
+                <span class="visitor-title">留客时长</span>
+              </div>
+              <div class="image-right">
+                <span class="visitor-duration">2.45h</span>
+              </div>
+            </div>
+          </li>
+          <!--进店趋势-->
+          <li class="entry echarts">
+            <div id="trend" class="echarts-inner"></div>
+          </li>
+          <!--接待TOPS-->
+          <li class="receive echarts">
+            <div id="tops" class="echarts-inner"></div>
+          </li>
+        </ul>
+      </div>
+      <!--内容右侧-->
+      <div id="content-right" class="fr">
+	      <div class="marginTop">
+		      <ul class="detail-ul">
+			      <li class="detail">
+				      <div class="detail-item clearfix">
+					      <span class="name">大王小王1</span>
+					      <div class="detail-left fl">
+						      <img class="person" src="./img/person.png" alt="销售人员">
+					      </div>
+					      <div class="item-ul fl">
+						      <span class="time enter-tile">进店时间: 20:25:23</span>
+						      <span class="time lang-time">留客时长: 20分钟</span>
+						      <span class="item no-checked">1</span>
+						      <span class="item checked">2</span>
+						      <span class="item no-checked">3</span>
+						      <span class="item no-checked">4</span>
+						      <span class="item no-checked">5</span>
+						      <span class="item no-checked">6</span>
+						      <span class="item no-checked">7</span>
+						      <span class="item checked">8</span>
+					      </div>
+				      </div>
+				      <div class="detail-item clearfix">
+					      <span class="name">大王小王</span>
+					      <div class="detail-left fl">
+						      <img class="person" src="./img/person.png" alt="销售人员">
+					      </div>
+					      <div class="item-ul fl">
+						      <span class="time enter-tile">进店时间: 20:25:23</span>
+						      <span class="time lang-time">留客时长: 20分钟</span>
+						      <span class="item no-checked">1</span>
+						      <span class="item checked">2</span>
+						      <span class="item no-checked">3</span>
+						      <span class="item no-checked">4</span>
+						      <span class="item no-checked">5</span>
+						      <span class="item no-checked">6</span>
+						      <span class="item no-checked">7</span>
+						      <span class="item checked">8</span>
+					      </div>
+				      </div>
+			      </li>
+			      <li class="detail">
+				      <div class="detail-item clearfix">
+					      <span class="name">大王小王2</span>
+					      <div class="detail-left fl">
+						      <img class="person" src="./img/person.png" alt="销售人员">
+					      </div>
+					      <div class="item-ul fl">
+						      <span class="time enter-tile">进店时间: 20:25:23</span>
+						      <span class="time lang-time">留客时长: 20分钟</span>
+						      <span class="item no-checked">1</span>
+						      <span class="item checked">2</span>
+						      <span class="item no-checked">3</span>
+						      <span class="item no-checked">4</span>
+						      <span class="item no-checked">5</span>
+						      <span class="item no-checked">6</span>
+						      <span class="item no-checked">7</span>
+						      <span class="item checked">8</span>
+					      </div>
+				      </div>
+				      <div class="detail-item clearfix">
+					      <span class="name">大王小王</span>
+					      <div class="detail-left fl">
+						      <img class="person" src="./img/person.png" alt="销售人员">
+					      </div>
+					      <div class="item-ul fl">
+						      <span class="time enter-tile">进店时间: 20:25:23</span>
+						      <span class="time lang-time">留客时长: 20分钟</span>
+						      <span class="item no-checked">1</span>
+						      <span class="item checked">2</span>
+						      <span class="item no-checked">3</span>
+						      <span class="item no-checked">4</span>
+						      <span class="item no-checked">5</span>
+						      <span class="item no-checked">6</span>
+						      <span class="item no-checked">7</span>
+						      <span class="item checked">8</span>
+					      </div>
+				      </div>
+			      </li>
+			      <li class="detail">
+				      <div class="detail-item clearfix">
+					      <span class="name">大王小王3</span>
+					      <div class="detail-left fl">
+						      <img class="person" src="./img/person.png" alt="销售人员">
+					      </div>
+					      <div class="item-ul fl">
+						      <span class="time enter-tile">进店时间: 20:25:23</span>
+						      <span class="time lang-time">留客时长: 20分钟</span>
+						      <span class="item no-checked">1</span>
+						      <span class="item checked">2</span>
+						      <span class="item no-checked">3</span>
+						      <span class="item no-checked">4</span>
+						      <span class="item no-checked">5</span>
+						      <span class="item no-checked">6</span>
+						      <span class="item no-checked">7</span>
+						      <span class="item checked">8</span>
+					      </div>
+				      </div>
+				      <div class="detail-item clearfix">
+					      <span class="name">大王小王</span>
+					      <div class="detail-left fl">
+						      <img class="person" src="./img/person.png" alt="销售人员">
+					      </div>
+					      <div class="item-ul fl">
+						      <span class="time enter-tile">进店时间: 20:25:23</span>
+						      <span class="time lang-time">留客时长: 20分钟</span>
+						      <span class="item no-checked">1</span>
+						      <span class="item checked">2</span>
+						      <span class="item no-checked">3</span>
+						      <span class="item no-checked">4</span>
+						      <span class="item no-checked">5</span>
+						      <span class="item no-checked">6</span>
+						      <span class="item no-checked">7</span>
+						      <span class="item checked">8</span>
+					      </div>
+				      </div>
+			      </li>
+			      <li class="detail">
+				      <div class="detail-item clearfix">
+					      <span class="name">大王小王4</span>
+					      <div class="detail-left fl">
+						      <img class="person" src="./img/person.png" alt="销售人员">
+					      </div>
+					      <div class="item-ul fl">
+						      <span class="time enter-tile">进店时间: 20:25:23</span>
+						      <span class="time lang-time">留客时长: 20分钟</span>
+						      <span class="item no-checked">1</span>
+						      <span class="item checked">2</span>
+						      <span class="item no-checked">3</span>
+						      <span class="item no-checked">4</span>
+						      <span class="item no-checked">5</span>
+						      <span class="item no-checked">6</span>
+						      <span class="item no-checked">7</span>
+						      <span class="item checked">8</span>
+					      </div>
+				      </div>
+				      <div class="detail-item clearfix">
+					      <span class="name">大王小王</span>
+					      <div class="detail-left fl">
+						      <img class="person" src="./img/person.png" alt="销售人员">
+					      </div>
+					      <div class="item-ul fl">
+						      <span class="time enter-tile">进店时间: 20:25:23</span>
+						      <span class="time lang-time">留客时长: 20分钟</span>
+						      <span class="item no-checked">1</span>
+						      <span class="item checked">2</span>
+						      <span class="item no-checked">3</span>
+						      <span class="item no-checked">4</span>
+						      <span class="item no-checked">5</span>
+						      <span class="item no-checked">6</span>
+						      <span class="item no-checked">7</span>
+						      <span class="item checked">8</span>
+					      </div>
+				      </div>
+			      </li>
+			      <li class="detail">
+				      <div class="detail-item clearfix">
+					      <span class="name">大王小王5</span>
+					      <div class="detail-left fl">
+						      <img class="person" src="./img/person.png" alt="销售人员">
+					      </div>
+					      <div class="item-ul fl">
+						      <span class="time enter-tile">进店时间: 20:25:23</span>
+						      <span class="time lang-time">留客时长: 20分钟</span>
+						      <span class="item no-checked">1</span>
+						      <span class="item checked">2</span>
+						      <span class="item no-checked">3</span>
+						      <span class="item no-checked">4</span>
+						      <span class="item no-checked">5</span>
+						      <span class="item no-checked">6</span>
+						      <span class="item no-checked">7</span>
+						      <span class="item checked">8</span>
+					      </div>
+				      </div>
+				      <div class="detail-item clearfix">
+					      <span class="name">大王小王</span>
+					      <div class="detail-left fl">
+						      <img class="person" src="./img/person.png" alt="销售人员">
+					      </div>
+					      <div class="item-ul fl">
+						      <span class="time enter-tile">进店时间: 20:25:23</span>
+						      <span class="time lang-time">留客时长: 20分钟</span>
+						      <span class="item no-checked">1</span>
+						      <span class="item checked">2</span>
+						      <span class="item no-checked">3</span>
+						      <span class="item no-checked">4</span>
+						      <span class="item no-checked">5</span>
+						      <span class="item no-checked">6</span>
+						      <span class="item no-checked">7</span>
+						      <span class="item checked">8</span>
+					      </div>
+				      </div>
+			      </li>
+		      </ul>
+	      </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <script src="js/lib/jquery.min.js"></script>
+  <script src="js/lib/jquery.SuperSlide.2.1.1.js"></script>
+  <script src="js/lib/echarts.min.js"></script>
+  <script src="js/lib/template-web.js"></script>
+  <script id="tmp_info" type="text/template">
+	  <% for(i = 0; i < info_list.length; i++) { %>
+	  <li class="detail">
+		  <% for(j = 0; j < info_list[i].length; j++) { %>
+		  <div class="detail-item clearfix">
+			  <span class="name"><%=info_list[i][j].nickname%></span>
+			  <div class="detail-left fl">
+				  <img class="person" src="<%=info_list[i][j].hPhoto%>" alt="销售人员">
+			  </div>
+			  <div class="item-ul fl">
+				  <span class="time enter-time">进店时间: <span><%=info_list[i][j].tapeTime%></span></span>
+				  <span class="time lang-time">留客时长: <span><%=info_list[i][j].duration%></span></span>
+				  <% for(k = 0; k < info_list[i][j].kr.length; k++) { %>
+				  {{if info_list[i][j].kr[k].krs }}
+				  <span class="item checked" title="<%=info_list[i][j].kr[k].krs%>"><%=info_list[i][j].kr[k].krs + '：暂无'%></span>
+				  {{ else }}
+				  <span class="item no-checked" title="<%=info_list[i][j].kr[k].krn + '：暂无'%>"><%=info_list[i][j].kr[k].krn%></span>
+				  {{ /if }}
+				  <% } %>
+			  </div>
+		  </div>
+		  <% } %>
+	  </li>
+	  <% } %>
+  </script>
+  <script>
+    $(function(){
+	    var baseUrl = 'http://192.168.0.40:32003';
+
+	    var times = setInterval(function () {
+            $.ajax({
+                url:baseUrl + '/api/kanban/findKanbanScoreTodayStatistics',
+                data: JSON.stringify({
+                    "groupId":"5bf61172ec5fb1411b6d9b4f",
+                    "tapeTime":"2019-06-02",
+                }),
+                contentType: 'application/json',
+                dataType:'json',
+                type:"post"
+            }).done(function(res){
+                if(res.code === 0) {
+                    var data = res.data;
+                    var totalPatron = data.totalPatron ? data.totalPatron + '人' : 0 + '人'; // 游客数量
+                    var totalDuration = data.totalDuration ? hours(data.totalDuration) : 0; // 留客时长
+                    var userTop = data.userTop;
+                    var scoreList = data.scoreList; // 详情数据
+                    var userMapping = data.userMapping; // 用户
+
+                    // 设置
+                    $('.visitor-num').text(totalPatron);
+                    $('.visitor-duration').text(totalDuration);
+
+                    //  接待数量           名字
+                    var userBarData = [], userName = [];
+                    for(var i = 0, len = userTop.length; i < len; i++) {
+                        if (i<=4) {
+                            var item = userTop[i];
+                            userBarData.unshift(item.times);
+                        }
+                        for(key in userMapping) {
+                            if (item.qid === key) {
+                                userName.unshift(userMapping[key].nickname);
+                                break
+                            }
+                        }
+                    };
+                    var info_list = [], itemArr = [], scoreListCopy = []; // 接待详情数据
+                    $.extend(true, scoreListCopy, scoreList);
+                    for(var k = 0, len1 = scoreListCopy.length; k < len1; k++) {
+                        var item1 = scoreListCopy[k];
+                        for(key in userMapping) {
+                            if (item1.createUserId === key) {
+                                item1.hPhoto = userMapping[key].hPhoto ? userMapping[key].hPhoto : './img/person.png';
+                                item1.nickname = userMapping[key].nickname;
+                                break
+                            }
+                        };
+                        item1.tapeTime = dateTimeFormatter(item1.tapeTime);
+                        item1.duration = minutes(item1.duration);
+
+                        itemArr.push(item1);
+                        if(itemArr.length === 2 || k === len1){
+                            info_list.push(itemArr);
+                            itemArr = [];
+                        }
+                    };
+
+                    $('#content-right .detail-ul').html(template('tmp_info', {info_list: info_list}));
+                    // 滚动销售人员
+                    $("#content-right").slide({
+                        mainCell:".marginTop .detail-ul",
+                        effect:"topLoop",
+                        // autoPlay:true,
+                        vis:3, // visible缩写，mainCell的可视范围个数，当实际内容个数少于可视个数的时候，不执行SuperSlide效果。
+                        mouseOverStop:true
+                    });
+
+                    // 进店趋势
+                    var entryTrend = echarts.init($('#trend')[0]);
+                    option = {
+                        title: {
+                            text: '进店趋势',
+                            textStyle:{ //设置主标题风格
+                                color:'#01D4F9',//设置主标题字体颜色
+                                fontSize: 16
+                            },
+                        },
+                        tooltip: {
+                            trigger: 'item',
+                            axisPointer: {
+                                type: 'shadow'
+                            }
+                        },
+                        textStyle: {
+                            color: '#01D4F9'
+                        },
+                        grid: {
+                            x: 34,
+                            y: 20,
+                            x2: 25,
+                            y2: 30,
+                        },
+                        xAxis: {
+                            type: 'category',
+                            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                            //设置轴线的属性
+                            axisLine:{
+                                lineStyle:{
+                                    color:'#2d5081'
+                                }
+                            },
+                            splitLine: { //网格线
+                                show: false
+                            }
+
+                        },
+                        yAxis: {
+                            type: 'value',
+                            //设置轴线的属性
+                            axisLine:{
+                                lineStyle:{
+                                    color:'rgba(255,255,255, 0)'
+                                }
+                            },
+                            splitLine: { //网格线
+                                show: false
+                            }
+                        },
+                        series: [{
+                            data: [820, 932, 901, 934, 1290, 1330, 1320],
+                            type: 'line',
+                            // symbol: 'none',  //取消折点圆圈
+                            itemStyle: {
+                                normal: {
+                                    color: "#01D4F9",
+                                }
+                            },
+                            smooth: true,
+                            lineStyle: {
+                                normal: {
+                                    color: '#01D4F9'
+                                },
+                            },
+                            areaStyle: {
+
+                                normal: {
+
+                                    color: {
+
+                                        type: 'linear',//设置线性渐变
+
+                                        x: 0,
+
+                                        y: 0,
+
+                                        x2: 0,
+
+                                        y2: 1,
+
+                                        colorStops: [{
+
+                                            offset: 0, color: 'rgba(15,171,246,0.6)' // 0% 处的颜色
+
+                                        }, {
+
+                                            offset: 1, color: 'rgba(73,187,240,0)' // 100% 处的颜色
+
+                                        }],
+
+                                        globalCoord: false // 缺省为 false
+
+                                    },
+
+                                }
+
+                            },
+                        }]
+                    };
+                    entryTrend.setOption(option);
+                    // ======================================================================================
+
+                    // 接待TOPS
+                    var receiveTops = echarts.init($('#tops')[0]);
+                    //初始化数据
+                    // var userName = ['小王王王', '小李', '小赵', '小马', '小刘'];
+                    // var userBarData = [431, 581, 1213, 1398, 1598];
+                    var option = {
+                        title: {
+                            text: '接待TOPS',
+                            textStyle:{ //设置主标题风格
+                                color:'#01D4F9',//设置主标题字体颜色
+                                fontSize: 16
+                            },
+                        },
+                        textStyle: {
+                            color: '#01D4F9'
+                        },
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'shadow'
+                            }
+                        },
+                        grid: {
+                            x: 60,
+                            y: 30,
+                            x2: 25,
+                            y2: 6
+                        },
+                        xAxis: {
+                            show : false
+                        },
+                        yAxis: {
+                            type: 'category',
+                            data: userName,
+                            splitLine: {show: false},
+                            axisLine: {
+                                show: false
+                            },
+                            axisTick: {
+                                show: false
+                            },
+                            // offset: 10,
+                            nameTextStyle: {
+                                fontSize: 12
+                            },
+                            splitLine: { //网格线
+                                show: false
+                            }
+                        },
+                        series: [
+                            {
+                                name: '数量',
+                                type: 'bar',
+                                data: userBarData,
+                                barWidth: 14,
+                                barGap:'20%',/*多个并排柱子设置柱子之间的间距*/
+                                barCategoryGap:'50%',/*多个并排柱子设置柱子之间的间距*/
+                                smooth: true,
+                                label: {
+                                    normal: {
+                                        show: true,
+                                        position: 'right',
+                                        offset: [5, 0],
+                                        textStyle: {
+                                            color: '#01D4F9',
+                                            fontSize: 12
+                                        }
+                                    }
+                                },
+                                itemStyle: {
+                                    normal: {
+                                        // barBorderRadius: 7 // 圆角
+                                        color: new echarts.graphic.LinearGradient(
+                                            0, 0, 1, 0,
+                                            [
+                                                {offset: 0, color: 'rgba(7,78,210,1)'},
+                                                {offset: 1, color: 'rgba(1,175,255,1)'}
+
+                                            ]
+                                        )
+                                    }
+                                }
+                            }
+                        ]
+                    };
+                    receiveTops.setOption(option);
+                }
+            });
+        }, 10000000000000000000000);
+
+        function minutes(s) {
+            var minutes = Math.ceil(s / 60);
+            return minutes + '分钟';
+        };
+
+        function hours(s) {
+            var hours = (s / 60 / 60).toFixed(2);
+            return hours + 'h';
+        }
+
+        function checkAddZone (num) {
+            return num<10 ? '0' + num.toString() : num;
+        }
+
+        function dateTimeFormatter (t) {
+            if (!t) return '';
+            t = new Date(t).getTime();
+            t = new Date(t);
+            // var year = t.getFullYear()
+            // var month = (t.getMonth() + 1)
+            // month = checkAddZone(month)
+            //
+            // var date = t.getDate()
+            // date = checkAddZone(date)
+
+            var hour = t.getHours();
+            hour = checkAddZone(hour);
+
+            var min = t.getMinutes();
+            min = checkAddZone(min);
+
+            var se = t.getSeconds();
+            se = checkAddZone(se);
+
+            return hour + ':' + min + ':' + se;
+        }
+
+
+
+
+
+
+
+
+
+        // 获取窗口高度
+        var windowWidth = $(window).width(),
+            windowHeight = $(window).height(),
+            contentWidth = windowWidth + 'px',
+	        contentHeight = windowHeight - 100 + 'px';
+	    $('#content').css({
+		    height: contentHeight,
+		    width: contentWidth
+	    });
+
+
+        // 点击切换是否选中
+        // $(document).on('click', '.item', function (e) {
+        //     $(this).toggleClass('checked');
+        // });
+    })
+  </script>
+</body>
+
+</html>
