@@ -226,6 +226,7 @@ body {
   width: 33%;
   height: 100%;
   box-sizing: border-box;
+  border: 1px solid #FF0000;
 }
 #container #content #content-lift ul li {
   display: block;
@@ -253,23 +254,21 @@ body {
 }
 #container #content #content-lift ul #visitor .visitor-left .visitor-top .visitor-title,
 #container #content #content-lift ul #visitor .visitor-right .visitor-top .visitor-title {
-  height: 30px;
-  line-height: 30px;
+  height: 100%;
+  line-height: 100%;
   box-sizing: border-box;
 }
-#container #content #content-lift ul #visitor .image-lift {
+#container #content #content-lift ul #visitor .image-left {
   background: rgba(255, 255, 255, 0) url("../img/visitor-left.png") no-repeat center center;
 }
 #container #content #content-lift ul #visitor .image-right {
   background: rgba(255, 255, 255, 0) url("../img/visitor-right.png") no-repeat center center;
 }
-#container #content #content-lift ul #visitor .image-lift,
+#container #content #content-lift ul #visitor .image-left,
 #container #content #content-lift ul #visitor .image-right {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
   box-sizing: border-box;
   margin: 0 auto 10px;
   background-size: 100% 100%;

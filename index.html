@@ -42,7 +42,7 @@
               <div class="visitor-top">
                 <span class="visitor-title ">游客数量</span>
               </div>
-              <div class="image-lift">
+              <div class="image-left">
                 <span class="visitor-num">77人</span>
               </div>
             </div>
@@ -375,6 +375,7 @@
                     windowHeight = $(window).height(),
                     contentWidth = windowWidth,
                     contentHeight = windowHeight - 100 ;
+                console.log(contentHeight);
                 // 动态设置内容区域宽高
                 $('#content').css({
                     height: contentHeight + 'px',
@@ -383,20 +384,33 @@
                 // 动态设置左侧内容区域宽高
                 $('#content-lift').css({
                     // height: contentHeight + 'px',
-                    width: contentWidth * 33% + 'px'
+                    width: contentWidth * 0.33 + 'px'
                 });
 
                 // 动态设置右侧内容区域宽高
                 $('#content-right').css({
                     // height: contentHeight + 'px',
-                    width: contentWidth * 65% + 'px'
-                });
-                $('#content-right ul li').css('height', contentWidth * 30% + 'px');
-                $('#content-right .image-lift, #content-right .image-right').css({
-                    height: contentHeight * 15%  + 'px',
-                    width: contentWidth * 15%  + 'px'
+                    width: contentWidth * 0.63 + 'px'
                 });
 
+                // 设置左侧两个标题的高度
+                $('.visitor-top').height(contentHeight * 0.3 * 0.1818 + 'px');
+
+                $('.visitor-title').css({
+	                height: contentHeight * 0.3 * 0.1818 + 'px',
+                    lineHeight: contentHeight * 0.3 * 0.1818 + 'px',
+                });
+
+	            var content_lift_ul_li_height = contentHeight * 0.3;
+                // 设置两个圆图的宽高
+                $('#visitor .image-left, #visitor .image-right').css({
+                    height: content_lift_ul_li_height * 0.75  + 'px',
+                    width: content_lift_ul_li_height * 0.75  + 'px'
+                });
+
+                $('#visitor').height(contentHeight * 0.31 + 'px');
+                $('.echarts').height(contentHeight * 0.31 + 'px');
+                $('.receive').height(contentHeight * 0.34 + 'px');
 
 
                 /****************************************************************************************/
@@ -591,7 +605,10 @@
                 };
                 receiveTops.setOption(option);
             }
+
         });
+
+
 
         /**
          * 格式化秒为分钟
