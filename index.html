@@ -11,14 +11,6 @@
   <link rel="stylesheet" href="./css/index.css">
   <!-- 引入favicon -->
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <!-- 兼容html5新标签和媒体查询的库  只有低版本8及其以下采用 因此要用ie条件注释语句(就是ie浏览器才认识的代码 其他浏览器都认为是注释)-->
-  <!-- lte就是小于等于ie8  lt小于ie9 -->
-  <!--[if lte IE 8]>
-  <script src="js/lib/html5shiv.js"></script>
-  <script src="js/lib/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- cc:ie6 其实是emmet语法早期的写法  在webstorm和sublime中应该是可以的 -->
 
 </head>
 
@@ -28,7 +20,7 @@
     <header>
       <div class="wrapper">
         <h2 id="title">兴奥晟通实时数据监测</h2>
-        <span id="currentTime">2019-06-12 12:10:10</span>
+        <span id="currentTime"></span>
       </div>
     </header>
     <!--内容区域-->
@@ -72,7 +64,7 @@
 			      <li class="detail">
 				      <div class="detail-item clearfix">
 					      <span class="name">大王小王1</span>
-					      <div class="detail-left fl">
+					      <div class="detail-item-left fl">
 						      <img class="person" src="./img/person.png" alt="销售人员">
 					      </div>
 					      <div class="item-ul fl">
@@ -90,7 +82,7 @@
 				      </div>
 				      <div class="detail-item clearfix">
 					      <span class="name">大王小王</span>
-					      <div class="detail-left fl">
+					      <div class="detail-item-left fl">
 						      <img class="person" src="./img/person.png" alt="销售人员">
 					      </div>
 					      <div class="item-ul fl">
@@ -110,7 +102,7 @@
 			      <li class="detail">
 				      <div class="detail-item clearfix">
 					      <span class="name">大王小王2</span>
-					      <div class="detail-left fl">
+					      <div class="detail-item-left fl">
 						      <img class="person" src="./img/person.png" alt="销售人员">
 					      </div>
 					      <div class="item-ul fl">
@@ -128,7 +120,7 @@
 				      </div>
 				      <div class="detail-item clearfix">
 					      <span class="name">大王小王</span>
-					      <div class="detail-left fl">
+					      <div class="detail-item-left fl">
 						      <img class="person" src="./img/person.png" alt="销售人员">
 					      </div>
 					      <div class="item-ul fl">
@@ -148,7 +140,7 @@
 			      <li class="detail">
 				      <div class="detail-item clearfix">
 					      <span class="name">大王小王3</span>
-					      <div class="detail-left fl">
+					      <div class="detail-item-left fl">
 						      <img class="person" src="./img/person.png" alt="销售人员">
 					      </div>
 					      <div class="item-ul fl">
@@ -166,7 +158,7 @@
 				      </div>
 				      <div class="detail-item clearfix">
 					      <span class="name">大王小王</span>
-					      <div class="detail-left fl">
+					      <div class="detail-item-left fl">
 						      <img class="person" src="./img/person.png" alt="销售人员">
 					      </div>
 					      <div class="item-ul fl">
@@ -186,7 +178,7 @@
 			      <li class="detail">
 				      <div class="detail-item clearfix">
 					      <span class="name">大王小王4</span>
-					      <div class="detail-left fl">
+					      <div class="detail-item-left fl">
 						      <img class="person" src="./img/person.png" alt="销售人员">
 					      </div>
 					      <div class="item-ul fl">
@@ -204,7 +196,7 @@
 				      </div>
 				      <div class="detail-item clearfix">
 					      <span class="name">大王小王</span>
-					      <div class="detail-left fl">
+					      <div class="detail-item-left fl">
 						      <img class="person" src="./img/person.png" alt="销售人员">
 					      </div>
 					      <div class="item-ul fl">
@@ -224,7 +216,7 @@
 			      <li class="detail">
 				      <div class="detail-item clearfix">
 					      <span class="name">大王小王5</span>
-					      <div class="detail-left fl">
+					      <div class="detail-item-left fl">
 						      <img class="person" src="./img/person.png" alt="销售人员">
 					      </div>
 					      <div class="item-ul fl">
@@ -242,7 +234,7 @@
 				      </div>
 				      <div class="detail-item clearfix">
 					      <span class="name">大王小王</span>
-					      <div class="detail-left fl">
+					      <div class="detail-item-left fl">
 						      <img class="person" src="./img/person.png" alt="销售人员">
 					      </div>
 					      <div class="item-ul fl">
@@ -275,7 +267,7 @@
 		  <% for(j = 0; j < info_list[i].length; j++) { %>
 		  <div class="detail-item clearfix">
 			  <span class="name"><%=info_list[i][j].nickname%></span>
-			  <div class="detail-left fl">
+			  <div class="detail-item-left fl">
 				  <img class="person" src="<%=info_list[i][j].hPhoto%>" alt="销售人员">
 			  </div>
 			  <div class="item-ul fl">
@@ -283,9 +275,9 @@
 				  <span class="time lang-time">留客时长: <span><%=info_list[i][j].duration%></span></span>
 				  <% for(k = 0; k < info_list[i][j].kr.length; k++) { %>
 				  {{if info_list[i][j].kr[k].krs }}
-				  <span class="item checked" title="<%=info_list[i][j].kr[k].krs%>"><%=info_list[i][j].kr[k].krs + '：暂无'%></span>
+				  <span class="item checked" title="<%=info_list[i][j].kr[k].krs%>"><%=info_list[i][j].kr[k].krs%></span>
 				  {{ else }}
-				  <span class="item no-checked" title="<%=info_list[i][j].kr[k].krn + '：暂无'%>"><%=info_list[i][j].kr[k].krn%></span>
+				  <span class="item no-checked" title="<%=info_list[i][j].kr[k].krn + '：暂无'%>"><%=info_list[i][j].kr[k].krn + '：暂无'%></span>
 				  {{ /if }}
 				  <% } %>
 			  </div>
@@ -298,317 +290,444 @@
     $(function(){
 	    var baseUrl = 'http://192.168.0.40:32003';
 
-        $.ajax({
-            url:baseUrl + '/api/kanban/findKanbanScoreTodayStatistics',
-            data: JSON.stringify({
-                "groupId":"5bf61172ec5fb1411b6d9b4f",
-                "tapeTime":"2019-06-02",
-            }),
-            contentType: 'application/json',
-            dataType:'json',
-            type:"post"
-        }).done(function(res){
-            if(res.code === 0) {
-                var data = res.data;
-                var totalPatron = data.totalPatron ? data.totalPatron + '人' : 0 + '人'; // 游客数量
-                var totalDuration = data.totalDuration ? hours(data.totalDuration) : 0; // 留客时长
-                var userTop = data.userTop;
-                var scoreList = data.scoreList; // 详情数据
-                var userMapping = data.userMapping; // 用户
+        getData();
+	    var times = setInterval(function () {
+            getData();
+        },180000);
 
-                // 设置
-                $('.visitor-num').text(totalPatron);
-                $('.visitor-duration').text(totalDuration);
+	    // 页面请求
+	    function getData() {
+            $.ajax({
+                url:baseUrl + '/api/kanban/findKanbanScoreTodayStatistics',
+                data: JSON.stringify({
+                    "groupId":"5bf61172ec5fb1411b6d9b4f",
+                    "tapeTime":"2019-06-02",
+                }),
+                contentType: 'application/json',
+                dataType:'json',
+                type:"post"
+            }).done(function(res){
+                if(res.code === 0) {
+                    // 获取进店趋势数据
+                    getTrend();
+                    var data = res.data;
+                    var totalPatron = data.totalPatron ? data.totalPatron + '人' : 0 + '人'; // 游客数量
+                    var totalDuration = data.totalDuration ? hours(data.totalDuration) : 0; // 留客时长
+                    var userTop = data.userTop;
+                    var scoreList = data.scoreList; // 详情数据
+                    var userMapping = data.userMapping; // 用户
 
-                //  接待数量           名字
-                var userBarData = [], userName = [];
-                // 获取userBarData 和 userName
-                for(var i = 0, len = userTop.length; i < len; i++) {
-                    if (i<=4) {
-                        var item = userTop[i];
-                        userBarData.unshift(item.times);
-                    }
-                    for(key in userMapping) {
-                        if (item.qid === key) {
-                            userName.unshift(userMapping[key].nickname);
-                            break
+                    // 设置
+                    $('.visitor-num').text(totalPatron);
+                    $('.visitor-duration').text(totalDuration);
+
+                    //  接待数量           名字
+                    var userBarData = [], userName = [];
+                    // 获取userBarData 和 userName
+                    for(var i = 0, len = userTop.length; i < len; i++) {
+                        if (i<=4) {
+                            var item = userTop[i];
+                            userBarData.unshift(item.times);
                         }
-                    }
-                };
-                var info_list = [], itemArr = [], scoreListCopy = []; // 接待详情数据
-                $.extend(true, scoreListCopy, scoreList);
-                // 获取info_list
-                for(var k = 0, len1 = scoreListCopy.length; k < len1; k++) {
-                    var item1 = scoreListCopy[k];
-                    for(key in userMapping) {
-                        if (item1.createUserId === key) {
-                            item1.hPhoto = userMapping[key].hPhoto ? userMapping[key].hPhoto : './img/person.png';
-                            item1.nickname = userMapping[key].nickname;
-                            break
+                        for(key in userMapping) {
+                            if (item.qid === key) {
+                                userName.unshift(userMapping[key].nickname);
+                                break
+                            }
                         }
                     };
-                    item1.tapeTime = dateTimeFormatter(item1.tapeTime);
-                    item1.duration = minutes(item1.duration);
-
-                    itemArr.push(item1);
-                    if(itemArr.length === 2 || k === len1){
-                        info_list.push(itemArr);
-                        itemArr = [];
-                    }
-                };
-
-                // 渲染接待详情模板
-                $('#content-right .detail-ul').html(template('tmp_info', {info_list: info_list}));
-                // 滚动接待详情
-                $("#content-right").slide({
-                    mainCell:".marginTop .detail-ul",
-                    effect:"topLoop",
-                    autoPlay:true,
-                    vis:3, // visible缩写，mainCell的可视范围个数，当实际内容个数少于可视个数的时候，不执行SuperSlide效果。
-                    mouseOverStop:true
-                });
-                /****************************************************************************************/
-
-
-                // 获取窗口高度
-                var windowWidth = $(window).width(),
-                    windowHeight = $(window).height(),
-                    contentWidth = windowWidth,
-                    contentHeight = windowHeight - 100 ;
-                console.log(contentHeight);
-                // 动态设置内容区域宽高
-                $('#content').css({
-                    height: contentHeight + 'px',
-                    width: contentWidth+ 'px'
-                });
-                // 动态设置左侧内容区域宽高
-                $('#content-lift').css({
-                    // height: contentHeight + 'px',
-                    width: contentWidth * 0.33 + 'px'
-                });
-
-                // 动态设置右侧内容区域宽高
-                $('#content-right').css({
-                    // height: contentHeight + 'px',
-                    width: contentWidth * 0.63 + 'px'
-                });
-
-                // 设置左侧两个标题的高度
-                $('.visitor-top').height(contentHeight * 0.3 * 0.1818 + 'px');
-
-                $('.visitor-title').css({
-	                height: contentHeight * 0.3 * 0.1818 + 'px',
-                    lineHeight: contentHeight * 0.3 * 0.1818 + 'px',
-                });
-
-	            var content_lift_ul_li_height = contentHeight * 0.3;
-                // 设置两个圆图的宽高
-                $('#visitor .image-left, #visitor .image-right').css({
-                    height: content_lift_ul_li_height * 0.75  + 'px',
-                    width: content_lift_ul_li_height * 0.75  + 'px'
-                });
-
-                $('#visitor').height(contentHeight * 0.31 + 'px');
-                $('.echarts').height(contentHeight * 0.31 + 'px');
-                $('.receive').height(contentHeight * 0.34 + 'px');
-
-
-                /****************************************************************************************/
-                // 进店趋势
-                var entryTrend = echarts.init($('#trend')[0]);
-                option = {
-                    title: {
-                        text: '进店趋势',
-                        textStyle:{ //设置主标题风格
-                            color:'#01D4F9',//设置主标题字体颜色
-                            fontSize: 16
-                        },
-                    },
-                    tooltip: {
-                        trigger: 'item',
-                        axisPointer: {
-                            type: 'shadow'
-                        }
-                    },
-                    textStyle: {
-                        color: '#01D4F9'
-                    },
-                    grid: {
-                        x: 34,
-                        y: 20,
-                        x2: 25,
-                        y2: 30,
-                    },
-                    xAxis: {
-                        type: 'category',
-                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                        //设置轴线的属性
-                        axisLine:{
-                            lineStyle:{
-                                color:'#2d5081'
+                    var info_list = [], itemArr = [], scoreListCopy = []; // 接待详情数据
+                    $.extend(true, scoreListCopy, scoreList);
+                    // 获取info_list
+                    for(var k = 0, len1 = scoreListCopy.length; k < len1; k++) {
+                        var item1 = scoreListCopy[k];
+                        for(key in userMapping) {
+                            if (item1.createUserId === key) {
+                                item1.hPhoto = userMapping[key].hPhoto ? userMapping[key].hPhoto : './img/person.png';
+                                item1.nickname = userMapping[key].nickname;
+                                break
                             }
-                        },
-                        splitLine: { //网格线
-                            show: false
-                        }
+                        };
+                        item1.tapeTime = dateTimeFormatter(item1.tapeTime);
+                        item1.duration = minutes(item1.duration);
 
-                    },
-                    yAxis: {
-                        type: 'value',
-                        //设置轴线的属性
-                        axisLine:{
-                            lineStyle:{
-                                color:'rgba(255,255,255, 0)'
-                            }
-                        },
-                        splitLine: { //网格线
-                            show: false
+                        itemArr.push(item1);
+                        if(itemArr.length === 2 || k === len1){
+                            info_list.push(itemArr);
+                            itemArr = [];
                         }
-                    },
-                    series: [{
-                        data: [820, 932, 901, 934, 1290, 1330, 1320],
-                        type: 'line',
-                        // symbol: 'none',  //取消折点圆圈
-                        itemStyle: {
-                            normal: {
-                                color: "#01D4F9",
-                            }
-                        },
-                        smooth: true,
-                        lineStyle: {
-                            normal: {
-                                color: '#01D4F9'
+                    };
+
+                    // 渲染接待详情模板
+                    $('#content-right .detail-ul').html(template('tmp_info', {info_list: info_list}));
+                    /****************************************************************************************/
+	                // 动态设置宽高
+                    steWidthHeight();
+
+                    /****************************************************************************************/
+                    // 滚动接待详情
+                    // ！！ 必须放在设置完 #content-right .detail 后，因为轮播图插件会先获取一个固定的滚动距离，即一个li的高度
+                    $("#content-right").slide({
+                        mainCell:".marginTop .detail-ul",
+                        // effect:"topLoop",
+                        effect:"top",
+                        // autoPlay:true,
+                        vis:3, // visible缩写，mainCell的可视范围个数，当实际内容个数少于可视个数的时候，不执行SuperSlide效果。
+                        mouseOverStop:true
+                    });
+
+                    // 接待TOPS
+                    var receiveTops = echarts.init($('#tops')[0]);
+                    //初始化数据
+                    // var userName = ['小王王王', '小李', '小赵', '小马', '小刘'];
+                    // var userBarData = [431, 581, 1213, 1398, 1598];
+                    var option = {
+                        title: {
+                            text: '接待TOPS',
+                            textStyle:{ //设置主标题风格
+                                color:'#01D4F9',//设置主标题字体颜色
+                                fontSize: 16
                             },
                         },
-                        areaStyle: {
-
-                            normal: {
-
-                                color: {
-
-                                    type: 'linear',//设置线性渐变
-
-                                    x: 0,
-
-                                    y: 0,
-
-                                    x2: 0,
-
-                                    y2: 1,
-
-                                    colorStops: [{
-
-                                        offset: 0, color: 'rgba(15,171,246,0.6)' // 0% 处的颜色
-
-                                    }, {
-
-                                        offset: 1, color: 'rgba(73,187,240,0)' // 100% 处的颜色
-
-                                    }],
-
-                                    globalCoord: false // 缺省为 false
-
-                                },
-
+                        textStyle: {
+                            color: '#01D4F9'
+                        },
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'shadow'
                             }
+                        },
+                        grid: {
+                            x: 60,
+                            y: 30,
+                            x2: 25,
+                            y2: 6
+                        },
+                        xAxis: {
+                            show : false
+                        },
+                        yAxis: {
+                            type: 'category',
+                            data: userName,
+                            splitLine: {show: false},
+                            axisLine: {
+                                show: false
+                            },
+                            axisTick: {
+                                show: false
+                            },
+                            // offset: 10,
+                            nameTextStyle: {
+                                fontSize: 12
+                            },
+                            splitLine: { //网格线
+                                show: false
+                            }
+                        },
+                        series: [
+                            {
+                                name: '数量',
+                                type: 'bar',
+                                data: userBarData,
+                                barWidth: 14,
+                                barGap:'20%',/*多个并排柱子设置柱子之间的间距*/
+                                barCategoryGap:'50%',/*多个并排柱子设置柱子之间的间距*/
+                                smooth: true,
+                                label: {
+                                    normal: {
+                                        show: true,
+                                        position: 'right',
+                                        offset: [5, 0],
+                                        textStyle: {
+                                            color: '#01D4F9',
+                                            fontSize: 12
+                                        }
+                                    }
+                                },
+                                itemStyle: {
+                                    normal: {
+                                        // barBorderRadius: 7 // 圆角
+                                        color: new echarts.graphic.LinearGradient(
+                                            0, 0, 1, 0,
+                                            [
+                                                {offset: 0, color: 'rgba(7,78,210,1)'},
+                                                {offset: 1, color: 'rgba(1,175,255,1)'}
 
-                        },
-                    }]
-                };
-                entryTrend.setOption(option);
-                // ======================================================================================
-
-                // 接待TOPS
-                var receiveTops = echarts.init($('#tops')[0]);
-                //初始化数据
-                // var userName = ['小王王王', '小李', '小赵', '小马', '小刘'];
-                // var userBarData = [431, 581, 1213, 1398, 1598];
-                var option = {
-                    title: {
-                        text: '接待TOPS',
-                        textStyle:{ //设置主标题风格
-                            color:'#01D4F9',//设置主标题字体颜色
-                            fontSize: 16
-                        },
-                    },
-                    textStyle: {
-                        color: '#01D4F9'
-                    },
-                    tooltip: {
-                        trigger: 'axis',
-                        axisPointer: {
-                            type: 'shadow'
-                        }
-                    },
-                    grid: {
-                        x: 60,
-                        y: 30,
-                        x2: 25,
-                        y2: 6
-                    },
-                    xAxis: {
-                        show : false
-                    },
-                    yAxis: {
-                        type: 'category',
-                        data: userName,
-                        splitLine: {show: false},
-                        axisLine: {
-                            show: false
-                        },
-                        axisTick: {
-                            show: false
-                        },
-                        // offset: 10,
-                        nameTextStyle: {
-                            fontSize: 12
-                        },
-                        splitLine: { //网格线
-                            show: false
-                        }
-                    },
-                    series: [
-                        {
-                            name: '数量',
-                            type: 'bar',
-                            data: userBarData,
-                            barWidth: 14,
-                            barGap:'20%',/*多个并排柱子设置柱子之间的间距*/
-                            barCategoryGap:'50%',/*多个并排柱子设置柱子之间的间距*/
-                            smooth: true,
-                            label: {
-                                normal: {
-                                    show: true,
-                                    position: 'right',
-                                    offset: [5, 0],
-                                    textStyle: {
-                                        color: '#01D4F9',
-                                        fontSize: 12
+                                            ]
+                                        )
                                     }
                                 }
+                            }
+                        ]
+                    };
+                    receiveTops.setOption(option);
+                }
+            });
+	    }
+
+	    // 获取进店趋势数据
+	    function getTrend() {
+            $.ajax({
+                url:baseUrl + '/api/kanban/findKanbanScoreDistributed',
+                data: JSON.stringify({
+                    "groupId":"5bf61172ec5fb1411b6d9b4f",
+                    "tapeTime":"2019-06-02",
+                    "beforeDay":5
+                }),
+                contentType: 'application/json',
+                dataType:'json',
+                type:"post"
+            }).done(function(msg) {
+                if (msg.code === 0) {
+                    //  日期        次数
+                    var dayArr = [], times = [];
+                    var data = msg.data;
+                    for(var i = 0, len = data.length; i < len; i++) {
+                        times.push(data[i].times);
+                        dayArr.push(data[i].day);
+                    }
+
+                    dayArr=dayArr.map(function (item, index) {
+	                    return insertStr(item.slice(4),2,'-');
+                    });
+
+                    /**
+                     * 字符串固定位置插入字符
+                     * @soure       原字符串
+                     * @start       要插入字符的位置
+                     * @newStr      要插入的字符
+                     * @returns {string}
+                     */
+                    function insertStr(soure, start, newStr){
+                        return soure.slice(0, start) + newStr + soure.slice(start);
+                    }
+
+                    // 进店趋势
+                    var entryTrend = echarts.init($('#trend')[0]);
+                    option = {
+                        title: {
+                            text: '进店趋势',
+                            textStyle:{ //设置主标题风格
+                                color:'#01D4F9',//设置主标题字体颜色
+                                fontSize: 16
                             },
+                        },
+                        tooltip: {
+                            trigger: 'item',
+                            axisPointer: {
+                                type: 'shadow'
+                            }
+                        },
+                        textStyle: {
+                            color: '#01D4F9'
+                        },
+                        grid: {
+                            x: 34,
+                            y: 34,
+                            x2: 25,
+                            y2: 30,
+                        },
+                        xAxis: {
+                            type: 'category',
+                            data: dayArr,
+                            //设置轴线的属性
+                            axisLine:{
+                                lineStyle:{
+                                    color:'#2d5081'
+                                }
+                            },
+                            splitLine: { //网格线
+                                show: false
+                            }
+
+                        },
+                        yAxis: {
+                            type: 'value',
+                            //设置轴线的属性
+                            axisLine:{
+                                lineStyle:{
+                                    color:'rgba(255,255,255, 0)'
+                                }
+                            },
+                            splitLine: { //网格线
+                                show: false
+                            }
+                        },
+                        series: [{
+                            data: times,
+                            type: 'line',
+                            // symbol: 'none',  //取消折点圆圈
+                            // symbol: 'circle',    //设定为实心点
+                            symbolSize: 6,   //设定实心点的大小
                             itemStyle: {
                                 normal: {
-                                    // barBorderRadius: 7 // 圆角
-                                    color: new echarts.graphic.LinearGradient(
-                                        0, 0, 1, 0,
-                                        [
-                                            {offset: 0, color: 'rgba(7,78,210,1)'},
-                                            {offset: 1, color: 'rgba(1,175,255,1)'}
-
-                                        ]
-                                    )
+                                    color: "#01D4F9",
                                 }
-                            }
-                        }
-                    ]
-                };
-                receiveTops.setOption(option);
-            }
+                            },
+                            smooth: true,
+                            lineStyle: {
+                                normal: {
+                                    color: '#35CBF7'
+                                },
+                            },
+                            areaStyle: {
 
-        });
+                                normal: {
 
+                                    color: {
 
+                                        type: 'linear',//设置线性渐变
+
+                                        x: 0,
+
+                                        y: 0,
+
+                                        x2: 0,
+
+                                        y2: 1,
+
+                                        colorStops: [{
+
+                                            offset: 0, color: 'rgba(15,171,246,0.6)' // 0% 处的颜色
+
+                                        }, {
+
+                                            offset: 1, color: 'rgba(73,187,240,0)' // 100% 处的颜色
+
+                                        }],
+
+                                        globalCoord: false // 缺省为 false
+
+                                    },
+
+                                }
+
+                            },
+                        }]
+                    };
+                    entryTrend.setOption(option);
+                }
+            });
+        }
+
+	    // 动态设置宽高
+	    function steWidthHeight() {
+            // 获取窗口高度
+            var windowWidth = $(window).width(),
+                windowHeight = $(window).height(),
+                contentWidth = windowWidth,
+                contentHeight = windowHeight - 100 ;
+            console.log(windowHeight, contentHeight);
+            console.log(windowWidth, contentWidth);
+            // 动态设置内容区域宽高
+            $('#content').css({
+                height: contentHeight + 'px',
+                width: contentWidth+ 'px'
+            });
+            // 动态设置左侧内容区域宽高
+            $('#content-lift').css({
+                height: contentHeight * 0.964 + 'px',
+                width: contentWidth * 0.33 + 'px'
+            });
+
+            // 动态设置右侧内容区域宽高
+            $('#content-right').css({
+                height: contentHeight * 0.964 + 'px',
+                width: contentWidth * 0.63 + 'px'
+            });
+
+            // 设置左侧两个标题的高度
+            $('.visitor-top').height(contentHeight * 0.3 * 0.1818 + 'px');
+
+            $('.visitor-title').css({
+                height: contentHeight * 0.3 * 0.1818 + 'px',
+                lineHeight: contentHeight * 0.3 * 0.1818 + 'px',
+            });
+
+            var content_lift_ul_li_height = contentHeight * 0.3;
+            // 设置两个圆图的宽高
+            $('#visitor .image-left, #visitor .image-right').css({
+                height: content_lift_ul_li_height * 0.75  + 'px',
+                width: content_lift_ul_li_height * 0.75  + 'px',
+            });
+
+            // 设置左侧li高度
+            $('#visitor').height(contentHeight * 0.3 + 'px');
+            $('.echarts').height(contentHeight * 0.32 + 'px');
+            $('.receive').height(contentHeight * 0.32 + 'px');
+
+            // 设置marginTop外边距
+            $('.marginTop').css({
+                marginTop: contentHeight * 0.036 + 'px',
+                marginLeft: contentWidth * 0.0074 + 'px'
+            });
+
+            // 设置模板高
+            $('.tempWrap').height(contentHeight * 0.928 + 'px');
+
+            // 设置一个右侧li高（一个滚动高度），底外边距
+            $('#content-right .detail').css({
+                height: contentHeight * 0.29137 + 'px',
+                marginBottom: contentHeight * 0.018 + 'px'
+            });
+
+            // 设置一个右侧li中每个单项的外边距
+            $('.detail-item').css({
+                marginRight: contentWidth * 0.003 + 'px'
+            });
+
+            $('.name').css({
+                height: contentHeight * 0.033 + 'px',
+                lineHeight: contentHeight * 0.034 + 'px'
+            });
+
+            // 设置每个头像的外边距
+            $('#content-right .detail .detail-item-left').css({
+                marginTop: contentHeight * 0.03 + 'px',
+                marginLeft: contentWidth * 0.0074 + 'px',
+                marginRight: contentWidth * 0.0074 + 'px',
+                marginBottom: contentHeight * 0.018 + 'px'
+            });
+
+            $('.person').css({
+                width: contentWidth * 0.0741 + 'px',
+                height: contentHeight * 0.2428 + 'px'
+            });
+
+            $('#content-right .detail .item-ul').css({
+                marginTop: contentHeight * 0.04 + 'px'
+            });
+
+            $('#content-right .item-ul span').css({
+                height: contentHeight * 0.04 + 'px',
+                lineHeight: contentHeight * 0.04 + 'px',
+                marginRight: contentWidth * 0.0024 + 'px',
+                marginBottom: contentHeight * 0.0054 + 'px'
+            });
+        }
+
+        // js动态显示时间
+        var attime;
+        function clock(){
+            var time=new Date();
+            attime= time.toLocaleTimeString();
+            $('#currentTime').text(attime);
+        }
+        // setInterval(clock,1000);
+
+	    // js动态显示时间
+        function clock2(){
+            dt = new Date();
+            var Y=dt.getFullYear();//获取完整的年份(4位,1970-????)
+            var M=dt.getMonth()+1;//获取月
+            var D=dt.getDate();//获取日
+            var h=dt.getHours()>=10?dt.getHours():'0'+dt.getHours();//获取时
+            var m=dt.getMinutes()>=10?dt.getMinutes():'0'+dt.getMinutes();//获取分
+            var s=dt.getSeconds()>=10?dt.getSeconds():'0'+dt.getSeconds();//获取秒
+            $('#currentTime').text(Y +'-'+ M +'-'+ D +' '+ h +':'+ m +':'+ s);
+        }
+        setInterval(clock2,1000);
 
         /**
          * 格式化秒为分钟
@@ -661,7 +780,6 @@
 
             return hour + ':' + min + ':' + se;
         };
-
     })
   </script>
 </body>

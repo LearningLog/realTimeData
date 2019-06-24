@@ -6,7 +6,6 @@
 html,body {
   width: 100%;
   height: 100%;
-  //overflow: hidden;
 }
 .dn {
   display: none;
@@ -70,7 +69,6 @@ html,body {
 
   #content {
     width: 100%;
-    height: calc(100% - 100px);
     padding: 0 20px 20px;
     box-sizing: border-box;
 
@@ -78,7 +76,6 @@ html,body {
       width: 33%;
       height: 100%;
       box-sizing: border-box;
-      border: 1px solid #FF0000;
 
       ul {
         li {
@@ -99,6 +96,7 @@ html,body {
             width: 50%;
             text-align: center;
             box-sizing: border-box;
+            position: relative;
 
             .visitor-top {
               width: 100%;
@@ -122,17 +120,30 @@ html,body {
           }
 
           .image-left, .image-right {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            //position: absolute;
+            //display: block;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
             box-sizing: border-box;
-            margin: 0 auto 10px;
+            //margin: 0 auto 10px;
             background-size: 100% 100%;
+            position: relative;
           }
 
           .visitor-num, .visitor-duration {
+            width: auto;
+            height: 16px;
             color: #FFFFFF;
             font-size: @fontSize;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
           }
         }
 
@@ -143,9 +154,9 @@ html,body {
           box-sizing: border-box;
           width: 100%;
           height: 170px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          //display: flex;
+          //justify-content: center;
+          //align-items: center;
 
           .echarts-inner {
             background: rgba(255,255,255, 0) url("../img/trend.png") no-repeat center center;
@@ -165,8 +176,6 @@ html,body {
     #content-right {
       width: 65%;
       height: 100%;
-      //margin-left: 10px;
-      //margin-right: 10px;
       box-sizing: border-box;
       background: rgba(255,255,255, 0) url("../img/deail-outer.png") no-repeat center center;
       background-size: 100% 100%;
@@ -179,14 +188,12 @@ html,body {
       .detail-ul {
         height: 100%;
         margin: 24px 0 5px;
-        //overflow: hidden;
       }
 
       .detail {
         width: 100%;
         height: 162px;
         box-sizing: border-box;
-        //overflow: hidden;
         margin-bottom: 10px;
 
         .detail-item {
@@ -209,7 +216,7 @@ html,body {
           margin: auto;
         }
 
-        .detail-left {
+        .detail-item-left {
           width: 24%;
           margin: 20px 10px 10px 10px;
           box-sizing: border-box;
@@ -253,9 +260,10 @@ html,body {
           display: inline-block;
           text-align: center;
           height: 100%;
+          line-height: 100%;
           background: rgba(255,255,255, 0) url("../img/no-checked.png") no-repeat center center;
           background-size: 100% 100%;
-          padding: 4px 0;
+          //padding: 4px 0;
           cursor: pointer;
           /*不换行*/
           white-space: nowrap;
@@ -271,7 +279,6 @@ html,body {
           height: 100%;
           background: rgba(255,255,255, 0) url("../img/checked.png") no-repeat center center;
           background-size: 100% 100%;
-          padding: 4px 0;
           cursor: pointer;
           color: #F6FF00;
         }
