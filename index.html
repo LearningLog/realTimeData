@@ -123,7 +123,7 @@
 				  <span class="time lang-time">留客时长: <span><%=info_list[i][j].duration%></span></span>
 				  <% for(k = 0; k < info_list[i][j].kr.length; k++) { %>
 				  {{if info_list[i][j].kr[k].krs }}
-				  <span class="item checked" title="<%=info_list[i][j].kr[k].krs%>"><%=info_list[i][j].kr[k].krs%></span>
+				  <span class="item checked" title="<%=info_list[i][j].kr[k].krn%>：<%=info_list[i][j].kr[k].krs%>"><%=info_list[i][j].kr[k].krn%>：<%=info_list[i][j].kr[k].krs%></span>
 				  {{ else }}
 				  <span class="item no-checked" title="<%=info_list[i][j].kr[k].krn + '：暂无'%>"><%=info_list[i][j].kr[k].krn + '：暂无'%></span>
 				  {{ /if }}
@@ -136,6 +136,9 @@
   </script>
   <script>
     $(function(){
+        $(window).resize(function() {
+            steWidthHeight();
+        });
 	    var baseUrl = 'http://192.168.0.40:32003';
 
         getData();
@@ -472,12 +475,12 @@
 
             $('.content-lift-ul').removeClass('dn');
 
-            $('.wrapper').width(windowWidth * 0.8895 + 'px');
+            $('.wrapper').width(windowWidth * 0.8785 + 'px');
             // $('#title').css({
             //     left: windowWidth * 0.3358 + 'px'
             // });
             $('#currentTime').css({
-	            left: windowWidth * 0.6671 + 'px'
+	            left: windowWidth * 0.593 + 'px'
             });
             // 动态设置内容区域宽高
             $('#content').css({
