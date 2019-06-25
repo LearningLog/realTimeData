@@ -164,7 +164,7 @@
                     var userTop = data.userTop;
                     var scoreList = data.scoreList; // 详情数据
                     var userMapping = data.userMapping; // 用户
-
+                    scoreList.length=5;
                     // 设置
                     $('.visitor-num').text(totalPatron);
                     $('.visitor-duration').text(totalDuration);
@@ -200,7 +200,7 @@
                         item1.duration = minutes(item1.duration);
 
                         itemArr.push(item1);
-                        if(itemArr.length === 2 || k === len1){
+                        if(itemArr.length === 2 || k === len1-1){
                             info_list.push(itemArr);
                             itemArr = [];
                         }
@@ -219,9 +219,10 @@
                         mainCell:".marginTop .detail-ul",
                         // effect:"topLoop",
                         effect:"top",
-                        // autoPlay:true,
+                        autoPlay:true,
                         vis:3, // visible缩写，mainCell的可视范围个数，当实际内容个数少于可视个数的时候，不执行SuperSlide效果。
-                        mouseOverStop:true
+                        mouseOverStop:true,
+                        interTime: 5000 // 毫秒；自动运行间隔。
                     });
 
                     // 接待TOPS

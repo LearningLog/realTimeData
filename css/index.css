@@ -359,6 +359,7 @@ body {
 #container #content #content-right .detail .item-ul {
   width: 69%;
   margin-top: 20px;
+  text-align: left;
 }
 #container #content #content-right .detail .item-ul .time {
   font-size: 14px;
