@@ -136,8 +136,11 @@
   </script>
   <script>
     $(function(){
+        var flag=0;
         $(window).resize(function() {
+            flag=1;
             steWidthHeight();
+            slide();
         });
 	    var baseUrl = 'http://192.168.0.40:32003';
 
@@ -152,7 +155,7 @@
                 url:baseUrl + '/api/kanban/findKanbanScoreTodayStatistics',
                 data: JSON.stringify({
                     "groupId":"5bf61172ec5fb1411b6d9b4f",
-                    "tapeTime":"2019-06-02",
+                    "tapeTime":"2019-05-31",
                 }),
                 contentType: 'application/json',
                 dataType:'json',
@@ -218,16 +221,9 @@
                     /****************************************************************************************/
                     // 滚动接待详情
                     // ！！ 必须放在设置完 #content-right .detail 后，因为轮播图插件会先获取一个固定的滚动距离，即一个li的高度
-                    $("#content-right").slide({
-                        mainCell:".marginTop .detail-ul",
-                        // effect:"topLoop",
-                        effect:"top",
-                        autoPlay:true,
-                        vis:3, // visible缩写，mainCell的可视范围个数，当实际内容个数少于可视个数的时候，不执行SuperSlide效果。
-                        mouseOverStop:true,
-                        interTime: 5000 // 毫秒；自动运行间隔。
-                    });
-
+	                if(flag==!1){
+                        slide();
+	                }
                     // 接待TOPS
                     var receiveTops = echarts.init($('#tops')[0]);
                     //初始化数据
@@ -235,11 +231,13 @@
                     // var userBarData = [431, 581, 1213, 1398, 1598];
                     var option = {
                         title: {
-                            text: '接待TOPS',
+                            text: '接待TOP5',
                             textStyle:{ //设置主标题风格
                                 color:'#01D4F9',//设置主标题字体颜色
-                                fontSize: 16
+                                fontSize: 16,
+                                fontWeight: 'normal'
                             },
+                            x: 36
                         },
                         textStyle: {
                             color: '#01D4F9'
@@ -253,7 +251,7 @@
                         grid: {
                             x: 60,
                             y: 30,
-                            x2: 25,
+                            x2: 38,
                             y2: 6
                         },
                         xAxis: {
@@ -318,6 +316,18 @@
             });
 	    }
 
+	    function slide() {
+            $("#content-right").slide({
+                mainCell:".marginTop .detail-ul",
+                effect:"topLoop",
+                // effect:"top",
+                autoPlay:true,
+                vis:3, // visible缩写，mainCell的可视范围个数，当实际内容个数少于可视个数的时候，不执行SuperSlide效果。
+                mouseOverStop:true,
+                // interTime: 60000 // 毫秒；自动运行间隔。
+            });
+        }
+
 	    // 获取进店趋势数据
 	    function getTrend() {
             $.ajax({
@@ -362,8 +372,10 @@
                             text: '进店趋势',
                             textStyle:{ //设置主标题风格
                                 color:'#01D4F9',//设置主标题字体颜色
-                                fontSize: 16
+                                fontSize: 16,
+                                fontWeight: 'normal'
                             },
+                            x: 36
                         },
                         tooltip: {
                             trigger: 'item',
@@ -375,10 +387,10 @@
                             color: '#01D4F9'
                         },
                         grid: {
-                            x: 34,
+                            x: 40,
                             y: 34,
                             x2: 25,
-                            y2: 30,
+                            y2: 36,
                         },
                         xAxis: {
                             type: 'category',
@@ -516,8 +528,10 @@
 
             // 设置左侧li高度
             $('#visitor').height(contentHeight * 0.3 + 'px');
-            $('.echarts').height(contentHeight * 0.32 + 'px');
-            $('.receive').height(contentHeight * 0.32 + 'px');
+            $('.echarts').css({
+                height: contentHeight * 0.32 + 'px',
+                padding: '10px'
+            });
 
             // 设置marginTop外边距
             $('.marginTop').css({
