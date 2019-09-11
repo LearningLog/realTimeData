@@ -151,16 +151,17 @@
 
 	    // 页面请求
 	    function getData() {
-            $.ajax({
-                url:baseUrl + '/api/kanban/findKanbanScoreTodayStatistics',
-                data: JSON.stringify({
-                    "groupId":"5bf61172ec5fb1411b6d9b4f",
-                    "tapeTime":"2019-05-31",
-                }),
-                contentType: 'application/json',
-                dataType:'json',
-                type:"post"
-            }).done(function(res){
+            // $.ajax({
+            //     url:baseUrl + '/api/kanban/findKanbanScoreTodayStatistics',
+            //     data: JSON.stringify({
+            //         "groupId":"5bf61172ec5fb1411b6d9b4f",
+            //         "tapeTime":"2019-05-31",
+            //     }),
+            //     contentType: 'application/json',
+            //     dataType:'json',
+            //     type:"post"
+            // }).done(function(res){debugger
+              res=JSON.parse('{"code":0,"message":"success","data":{"userTop":[{"qid":"5ce53953ec5fb16a980e065e","times":4},{"qid":"5cc50147ec5fb16a980e05e1","times":3},{"qid":"5cc26af5ec5fb16a980e05ae","times":2},{"qid":"5cc50123ec5fb16a980e05df","times":2},{"qid":"5cc50110ec5fb16a980e05de","times":2},{"qid":"5ce53979ec5fb16a980e065f","times":2},{"qid":"5cc500a0ec5fb16a980e05d8","times":1},{"qid":"5cc26b57ec5fb16a980e05b2","times":1},{"qid":"5cc26a55ec5fb16a980e05a9","times":1},{"qid":"5cc26c3bec5fb16a980e05bb","times":1},{"qid":"5cc26b0eec5fb16a980e05af","times":1}],"totalDuration":53343,"scoreList":[{"_id":"5d7899b6ec5fb144f9bb062e","createUserId":"5cc26b57ec5fb16a980e05b2","duration":905,"tapeTime":1568183846000,"kr":[{"krn":"试驾","kra":null},{"krn":"上牌","kra":"置换"},{"krn":"购车","kra":"全款"},{"krn":"车型","kra":null},{"krn":"进店","kra":"首次进店"},{"krn":"时间","kra":null},{"krn":"竞品","kra":["保时捷"]},{"krn":"预算","kra":"20万"}]},{"_id":"5d789578ec5fb144f9bb05ca","createUserId":"5cc26af5ec5fb16a980e05ae","duration":2475,"tapeTime":1568181192000,"kr":[{"krn":"试驾","kra":null},{"krn":"上牌","kra":null},{"krn":"购车","kra":"全款"},{"krn":"车型","kra":null},{"krn":"进店","kra":"首次进店"},{"krn":"时间","kra":"一个月内"},{"krn":"竞品","kra":["宝马","林肯"]},{"krn":"预算","kra":"40万"}]},{"_id":"5d788a06ec5fb144f9bb0506","createUserId":"5cc50147ec5fb16a980e05e1","duration":1416,"tapeTime":1568179314000,"kr":[{"krn":"试驾","kra":"试驾过"},{"krn":"上牌","kra":null},{"krn":"购车","kra":null},{"krn":"车型","kra":null},{"krn":"进店","kra":"首次进店"},{"krn":"时间","kra":"六个月内"},{"krn":"竞品","kra":["宝马","丰田"]},{"krn":"预算","kra":"50万"}]},{"_id":"5d788a31ec5fb144f9bb050c","createUserId":"5cc50147ec5fb16a980e05e1","duration":1416,"tapeTime":1568179314000,"kr":[{"krn":"试驾","kra":"试驾过"},{"krn":"上牌","kra":null},{"krn":"购车","kra":null},{"krn":"车型","kra":null},{"krn":"进店","kra":"首次进店"},{"krn":"时间","kra":"六个月内"},{"krn":"竞品","kra":["丰田"]},{"krn":"预算","kra":"50万"}]},{"_id":"5d788890ec5fb144f9bb04dd","createUserId":"5ce53953ec5fb16a980e065e","duration":1301,"tapeTime":1568179062000,"kr":[{"krn":"试驾","kra":"试驾过"},{"krn":"上牌","kra":null},{"krn":"购车","kra":"全款"},{"krn":"车型","kra":["GLC"]},{"krn":"进店","kra":null},{"krn":"时间","kra":null},{"krn":"竞品","kra":null},{"krn":"预算","kra":null}]},{"_id":"5d788638ec5fb144f9bb0494","createUserId":"5cc500a0ec5fb16a980e05d8","duration":2173,"tapeTime":1568177590000,"kr":[{"krn":"试驾","kra":null},{"krn":"上牌","kra":null},{"krn":"购车","kra":null},{"krn":"车型","kra":["S级"]},{"krn":"进店","kra":"首次进店"},{"krn":"时间","kra":null},{"krn":"竞品","kra":["宝马"]},{"krn":"预算","kra":"30万"}]},{"_id":"5d7862bcec5fb144f9bb01da","createUserId":"5cc26c3bec5fb16a980e05bb","duration":5292,"tapeTime":1568165387000,"kr":[{"krn":"试驾","kra":"试驾过"},{"krn":"上牌","kra":"置换"},{"krn":"购车","kra":"分期"},{"krn":"车型","kra":["GLC","C级"]},{"krn":"进店","kra":"首次进店"},{"krn":"时间","kra":"一个月内"},{"krn":"竞品","kra":["奥迪","宝马"]},{"krn":"预算","kra":"40万"}]}],"shopName":"百得利奔驰","totalPatron":20,"userMapping":{"5cc26af5ec5fb16a980e05ae":{"nickname":"周佳"},"5cc500a0ec5fb16a980e05d8":{"nickname":"梁宇"},"5cc26a55ec5fb16a980e05a9":{"nickname":"董智"},"5cc26b57ec5fb16a980e05b2":{"nickname":"吴鹏"},"5cc50147ec5fb16a980e05e1":{"nickname":"刘美娟"},"5cc50123ec5fb16a980e05df":{"nickname":"霍明超"},"5cc26c3bec5fb16a980e05bb":{"nickname":"姜啸"},"5cc50110ec5fb16a980e05de":{"nickname":"蒋瑞"},"5ce53979ec5fb16a980e065f":{"nickname":"刘永全"},"5ce53953ec5fb16a980e065e":{"nickname":"郭晋"},"5cc26b0eec5fb16a980e05af":{"nickname":"马朝栋"}}}}')
                 if(res.code === 0) {
                     // 获取进店趋势数据
                     getTrend();
@@ -170,7 +171,7 @@
                     var userTop = data.userTop;
                     var scoreList = data.scoreList; // 详情数据
                     var userMapping = data.userMapping; // 用户
-                    scoreList.length=5;
+                    scoreList.length=7;
                     // 设置
                     $('.visitor-num').text(totalPatron);
                     $('.visitor-duration').text(totalDuration);
@@ -313,7 +314,7 @@
                     };
                     receiveTops.setOption(option);
                 }
-            });
+            // });
 	    }
 
 	    function slide() {
@@ -321,6 +322,7 @@
                 mainCell:".marginTop .detail-ul",
                 effect:"topLoop",
                 // effect:"top",
+                autoPage:true,
                 autoPlay:true,
                 vis:3, // visible缩写，mainCell的可视范围个数，当实际内容个数少于可视个数的时候，不执行SuperSlide效果。
                 mouseOverStop:true,
